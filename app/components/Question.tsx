@@ -5,5 +5,5 @@ export default function Question({
   alternatives,
   answer,
 }: LearnDB.Question) {
-  return;
+  return <></>;
 }

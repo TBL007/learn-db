@@ -5,5 +5,5 @@ export default function ({
   steps,
   questions,
 }: LearnDB.Category) {
-  return;
+  return <></>;
 }

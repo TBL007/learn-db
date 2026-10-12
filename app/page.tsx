@@ -7,7 +7,7 @@ export default function Home() {
       <h1>Lorem ipsum</h1>
       <div>
         {dataBases.map((db) => (
-          <DataBaseCard {...db} />
+          <DataBaseCard {...db} key={db.id} />
         ))}
       </div>
     </div>

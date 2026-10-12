@@ -1,9 +1,23 @@
-export default function ({
+import Link from "next/link";
+
+export default function DataBaseCard({
   id,
   info,
   title,
   logo,
   categories,
 }: LearnDB.DataBase) {
-  return;
+  return (
+    <Link id={id} href={`/${id}`}>
+      <img src={`/logos/${logo}`} />
+      <div>
+        <h2>{title}</h2>
+        <ul>
+          {info.map((item, i) => (
+            <li key={i}>- {item}</li>
+          ))}
+        </ul>
+      </div>
+    </Link>
+  );
 }
