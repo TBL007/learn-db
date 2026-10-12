@@ -5,6 +5,7 @@ declare global {
       title: string;
       text: string;
       image?: string;
+      important?: string;
     }
     interface Question {
       id: string;
@@ -29,3 +30,5 @@ declare global {
     }
   }
 }
+
+export {};
