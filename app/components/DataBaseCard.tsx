@@ -8,7 +8,7 @@ export default function DataBaseCard({
   categories,
 }: LearnDB.DataBase) {
   return (
-    <Link id={id} href={`/${id}`}>
+    <Link id={id} href={`/${id}/${categories[0].id}`}>
       <img src={`/logos/${logo}`} />
       <div>
         <h2>{title}</h2>
