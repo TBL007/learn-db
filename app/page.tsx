@@ -1,5 +1,6 @@
 import dataBases from "@/exampleData";
 import DataBaseCard from "./components/DataBaseCard";
+import Category from "./components/Category";
 
 export default function Home() {
   return (
