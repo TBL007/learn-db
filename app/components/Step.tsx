@@ -5,5 +5,5 @@ export default function Step({
   image,
   important,
 }: LearnDB.Step) {
-  return;
+  return <></>;
 }
