@@ -1,11 +1,10 @@
 "use client";
 
+import dataBases from "@/exampleData";
 import { useState } from "react";
 
 interface CategoryProps extends LearnDB.Category {
   dbId: string;
-  categories: LearnDB.Category[];
-  onSelect: (id: string) => void;
 }
 
 export default function Category({
@@ -13,20 +12,15 @@ export default function Category({
   title,
   info,
   steps,
-  categories,
-  onSelect,
+  dbId,
 }: CategoryProps) {
   const [selection, setSelection] = useState({ id, selectedId: id });
   if (selection.id !== id) {
     setSelection({ id, selectedId: id });
   }
 
-  const selectedId =
-    selection.id === id ? selection.selectedId : id;
-  const selectedCategory = categories.find(
-    (category) => category.id === selectedId,
-  );
-  const activeCategory = selectedCategory ?? { id, title, info, steps };
+  const categories = dataBases.find((db) => db.id === dbId)?.categories;
+  if (!categories) return;
 
   return (
     <div className="category">
@@ -35,13 +29,10 @@ export default function Category({
           <button
             type="button"
             key={category.id}
-            className={`category-tab ${
-              category.id === activeCategory.id ? "active" : ""
-            }`}
-            aria-pressed={category.id === activeCategory.id}
+            className={`category-tab ${category.id === id ? "active" : ""}`}
+            aria-pressed={category.id === id}
             onClick={() => {
               setSelection({ id, selectedId: category.id });
-              onSelect(category.id);
             }}
           >
             {category.title}
@@ -50,10 +41,10 @@ export default function Category({
       </div>
 
       <div className="category-content">
-        <h2>{activeCategory.title}</h2>
-        <p>{activeCategory.info}</p>
+        <h2>{title}</h2>
+        <p>{info}</p>
 
-        {activeCategory.steps.map((step) => (
+        {steps.map((step) => (
           <div key={step.id} className="step">
             <h3>{step.title}</h3>
             <p>{step.text}</p>
