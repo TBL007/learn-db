@@ -2,18 +2,13 @@
 
 import dataBases from "@/exampleData";
 import { useState } from "react";
+import Step from "./Step";
 
 interface CategoryProps extends LearnDB.Category {
   dbId: string;
 }
 
-export default function Category({
-  id,
-  title,
-  info,
-  steps,
-  dbId,
-}: CategoryProps) {
+export default function Category({ id, title, info, dbId }: CategoryProps) {
   const [selection, setSelection] = useState({ id, selectedId: id });
   if (selection.id !== id) {
     setSelection({ id, selectedId: id });
@@ -44,14 +39,7 @@ export default function Category({
         <h2>{title}</h2>
         <p>{info}</p>
 
-        {steps.map((step) => (
-          <div key={step.id} className="step">
-            <h3>{step.title}</h3>
-            <p>{step.text}</p>
-            {step.important && <p className="important">{step.important}</p>}
-            {step.image && <img src={step.image} alt={step.title} />}
-          </div>
-        ))}
+        <Step dbId={dbId} categoryId={id} />
       </div>
     </div>
   );
