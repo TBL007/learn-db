@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import styles from "@styles/question.module.css";
+
 interface QuestionProps extends LearnDB.Question {
   setIndex: any;
   maxIndex: number;
@@ -33,9 +35,10 @@ export default function Question({
     setMessage("false");
   };
   return (
-    <div id={id}>
-      <h3>{question}</h3>
-      <form onSubmit={handleSubmit}>
+    <div id={id} className={styles.main}>
+      <h3 className={styles.question}>{question}</h3>
+      <form onSubmit={handleSubmit} className="form">
+        |
         {answertype === "text" ? (
           <input
             type="text"
