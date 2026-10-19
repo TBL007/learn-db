@@ -5,12 +5,19 @@ import { useEffect, useState } from "react";
 import Step from "./Step";
 import Link from "next/link";
 import "./component.css";
+import Questions from "./Questions";
 
 interface CategoryProps extends LearnDB.Category {
   dbId: string;
 }
 
-export default function Category({ id, title, info, dbId }: CategoryProps) {
+export default function Category({
+  id,
+  title,
+  info,
+  dbId,
+  questions,
+}: CategoryProps) {
   const categories = dataBases.find((db) => db.id === dbId)?.categories;
   if (!categories) return;
 
@@ -35,6 +42,8 @@ export default function Category({ id, title, info, dbId }: CategoryProps) {
         <p>{info}</p>
 
         <Step dbId={dbId} categoryId={id} />
+
+        <Questions questions={questions} />
       </div>
     </div>
   );
