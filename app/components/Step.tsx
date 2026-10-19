@@ -1,4 +1,5 @@
 import dataBases from "@/exampleData";
+import "./component.css";
 
 interface StepProps {
   dbId: string;
