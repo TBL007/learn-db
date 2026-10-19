@@ -86,8 +86,8 @@ const dataBases: Array<LearnDB.DataBase> = [
     ],
   },
   {
-    id: "db-2",
-    title: "Ipsum Database",
+    id: "mariadb",
+    title: "MariaDB",
     info: [
       "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
       "Consectetur, adipisci velit, sed quia non numquam eius modi tempora.",
@@ -95,33 +95,46 @@ const dataBases: Array<LearnDB.DataBase> = [
     logo: "/logos/ipsum.svg",
     categories: [
       {
-        id: "db-2-cat-1",
-        title: "Data Modeling",
+        id: "mariadb-getting-started",
+        title: "Getting started",
         info: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
         steps: [
           {
-            id: "db-2-cat-1-step-1",
-            title: "Identify entities",
-            text: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores.",
-            image: "/images/ipsum-entities.png",
+            id: "download",
+            title: "Downloading MariaDB",
+            text: "Head over to the <a href='https://mariadb.com/downloads/' style='color:cyan;'>mariadb download's page</a>",
           },
           {
-            id: "db-2-cat-1-step-2",
-            title: "Define relationships",
-            text: "Alias consequatur aut perferendis doloribus asperiores repellat.",
+            id: "install",
+            title: "Installing mariaDB",
+            text: "Open the installer you downloaded and walk through the steps",
             important:
-              "Nam libero tempore, cum soluta nobis est eligendi optio.",
+              "Remember the root password you set. maybe even write it down",
           },
           {
-            id: "db-2-cat-1-step-3",
-            title: "Normalize the schema",
-            text: "Cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+            id: "cmd line",
+            title: "Open cmd",
+            text: "To establish a connection to mariaDB you first need to open the command line interface",
+            image: "/images/mariacmd.png",
+          },
+          {
+            id: "connect",
+            title: "Connect",
+            text: "Type the command mariadb -p it will establish a connection to localhost:3306 with the root user.",
+
+            important: "-p makes it ask you for the password",
+          },
+          {
+            id: "login",
+            title: "Login",
+            text: "Type your password when prompted and you now have a connection to your database",
+            image: "/images/mariaconnect.png",
           },
         ],
         questions: [
           {
-            id: "db-2-cat-1-q-1",
-            question: "Neque porro quisquam est, qui dolorem?",
+            id: "first-table",
+            question: "Creating your first table",
             answertype: "multiple",
             alternatives: ["Ipsum", "Lorem", "Dolor", "Amet"],
             answer: "Ipsum",
@@ -135,21 +148,29 @@ const dataBases: Array<LearnDB.DataBase> = [
         ],
       },
       {
-        id: "db-2-cat-2",
-        title: "Indexes and Performance",
-        info: "Omnis voluptas assumenda est, omnis dolor repellendus.",
+        id: "first-table",
+        title: "Creating your first table",
+        info: "This will be covering the basics of creating tables in mariadb",
         steps: [
           {
-            id: "db-2-cat-2-step-1",
-            title: "Create an index",
-            text: "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.",
-            important: "Ut enim ad minima veniam, quis nostrum exercitationem.",
+            id: "create-db",
+            title: "Creating you first db schema",
+            text: "To create your first databse schema run the command 'create database mydb;'",
           },
           {
-            id: "db-2-cat-2-step-2",
-            title: "Read the query plan",
-            text: "Quis autem vel eum iure reprehenderit qui in ea <a href='https://youtube.com'>voluptate.</a>",
-            image: "/images/ipsum-plan.png",
+            id: "open-db",
+            title: "Now enter it",
+            text: "Enter your database 'USE mydb'",
+            important:
+              "you can check if the database has been made by running 'show databases;'",
+          },
+          {
+            id: "create-table",
+            title: "Create a table",
+            text: "Create a table with columns id and text by running 'create table mytable (id INT AUTO_INCREMENT PRIMARY KEY, text VARCHAR(255) NOT NULL);'",
+            important:
+              "you can check if the table has been made by running 'show tables;'",
+            image: "/images/mariatablecreated.png",
           },
         ],
         questions: [
@@ -165,6 +186,65 @@ const dataBases: Array<LearnDB.DataBase> = [
             question: "What keyword shows a query plan in MySQL?",
             answertype: "text",
             answer: "EXPLAIN",
+          },
+        ],
+      },
+      {
+        id: "data",
+        title: "manipulating-data",
+        info: "MariaDB is a sql based service. This will cover the basics of manipulating data with sql",
+        steps: [
+          {
+            id: "insert-data",
+            title: "Insert data",
+            text: `Insert data into your table by running 'INSERT INTO mytable (text) VALUES ("hello world");'`,
+          },
+          {
+            id: "read-data",
+            title: "Read data",
+            text: `Run 'select * from mytable' to see the data you have inserted`,
+          },
+          {
+            id: "change-data",
+            title: "Changing data",
+            text: `if you have data with values you would like to change you run 'UPDATE mytable SET text="Hello cruel world!" WHERE id = 1;'`,
+            important:
+              "It's recommended to always use to primary key when swapping data as to not accidentaly overwrite data unintended",
+          },
+        ],
+        questions: [
+          {
+            id: "insert-data-q",
+            question: "How do you add data to a table?",
+            answertype: "multiple",
+            alternatives: [
+              "ADD TO mytable text = 'Hello world'",
+              "INSERT INTO mytable (text) VALUES ('Hello world')",
+              "PUT 'Hello world' IN mytable",
+            ],
+            answer: "INSERT INTO mytable (text) VALUES ('Hello world')",
+          },
+          {
+            id: "read-data-q",
+            question: "How do you see all the data in a table?",
+            answertype: "multiple",
+            alternatives: [
+              "SELECT * FROM mytable",
+              "SHOW DATA mytable",
+              "READ ALL FROM mytable",
+            ],
+            answer: "SELECT * FROM mytable",
+          },
+          {
+            id: "change-data-q",
+            question: "How do you change the text of the row with id 1?",
+            answertype: "multiple",
+            alternatives: [
+              "CHANGE mytable SET text = 'Hi' WHERE id = 1",
+              "UPDATE mytable SET text = 'Hi' WHERE id = 1",
+              "UPDATE mytable text = 'Hi' IF id = 1",
+            ],
+            answer: "UPDATE mytable SET text = 'Hi' WHERE id = 1",
           },
         ],
       },
