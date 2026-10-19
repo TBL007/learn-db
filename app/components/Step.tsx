@@ -19,6 +19,11 @@ export default function Step({ categoryId, dbId }: StepProps) {
           <p dangerouslySetInnerHTML={{ __html: step.text }}></p>
           {step.important && <p className="important">{step.important}</p>}
           {step.image && <img src={step.image} alt={step.title} />}
+          {step.code && (
+            <pre>
+              <code className="code">{step.code}</code>{" "}
+            </pre>
+          )}
         </div>
       ))}
     </div>
