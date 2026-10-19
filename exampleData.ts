@@ -11,12 +11,12 @@ const dataBases: Array<LearnDB.DataBase> = [
     categories: [
       {
         id: "db-1-cat-1",
-        title: "Getting Started",
-        info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        title: "MySQL - Getting Started",
+        info: "This guide will teach you the core foundational concepts of databases using MySQL, one of the most widely used relational database management systems in the world.",
         steps: [
           {
             id: "db-1-cat-1-step-1",
-            title: "Install Lorem",
+            title: "Relational Databases & The Spreadsheet Analogy",
             text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
             image: "/images/lorem-install.png",
             important: "Excepteur sint occaecat cupidatat non proident.",
