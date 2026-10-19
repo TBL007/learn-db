@@ -148,7 +148,7 @@ const dataBases: Array<LearnDB.DataBase> = [
           {
             id: "db-2-cat-2-step-2",
             title: "Read the query plan",
-            text: "Quis autem vel eum iure reprehenderit qui in ea voluptate.",
+            text: "Quis autem vel eum iure reprehenderit qui in ea <a href='https://youtube.com'>voluptate.</a>",
             image: "/images/ipsum-plan.png",
           },
         ],

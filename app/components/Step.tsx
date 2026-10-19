@@ -16,7 +16,7 @@ export default function Step({ categoryId, dbId }: StepProps) {
       {steps.map((step) => (
         <div key={step.id} className="step">
           <h3>{step.title}</h3>
-          <p>{step.text}</p>
+          <p dangerouslySetInnerHTML={{ __html: step.text }}></p>
           {step.important && <p className="important">{step.important}</p>}
           {step.image && <img src={step.image} alt={step.title} />}
         </div>
