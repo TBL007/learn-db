@@ -19,10 +19,14 @@ export default function DataBaseCard({
       <span className="db-card-logo">
         <img src={logo} alt={`${title} logo`} />
       </span>
+      <ul className="">
+        {info.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
       <span className="db-card-cta" aria-hidden="true">
         Start learning <span aria-hidden="true">→</span>
       </span>
-      <span className="sr-only">{info.join(" ")}</span>
     </Link>
   );
 }
