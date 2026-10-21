@@ -379,7 +379,25 @@ h1 {
 }
 
 .step-text a {
+  color: -webkit-link;
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.step-text a:link {
+  color: -webkit-link;
+}
+
+.step-text a:visited {
+  color: -webkit-visited-link;
+}
+
+.step-text a:hover {
+  text-decoration: underline;
+}
+
+.step-text a:active {
+  color: -webkit-activelink;
 }
 
 .step-code {

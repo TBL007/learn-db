@@ -102,7 +102,7 @@ const dataBases: Array<LearnDB.DataBase> = [
           {
             id: "download",
             title: "Downloading MariaDB",
-            text: "Head over to the <a href='https://mariadb.com/downloads/' target='_blank' rel='noreferrer' style='color:cyan;'>MariaDB downloads page</a> and pick the latest stable (GA) release for your operating system.",
+            text: "Head over to the <a href='https://mariadb.com/downloads/' target='_blank' rel='noreferrer' '>MariaDB downloads page</a> and pick the latest stable (GA) release for your operating system.",
           },
           {
             id: "install",
