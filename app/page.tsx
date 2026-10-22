@@ -1,12 +1,11 @@
 import dataBases from "@/exampleData";
 import DataBaseCard from "./components/DataBaseCard";
-import Category from "./components/Category";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Lorem ipsum</h1>
-      <div>
+    <div className="home">
+      <h1 className="home-title">Get started with databases</h1>
+      <div className="db-grid">
         {dataBases.map((db) => (
           <DataBaseCard {...db} key={db.id} />
         ))}

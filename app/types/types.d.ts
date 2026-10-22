@@ -6,6 +6,8 @@ declare global {
       text: string;
       image?: string;
       important?: string;
+      code?:string;
+
     }
     interface Question {
       id: string;
