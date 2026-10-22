@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "./component.css";
 
 export default function DataBaseCard({
   id,

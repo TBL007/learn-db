@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import "./component.css";
 interface QuestionProps extends LearnDB.Question {
   setIndex: any;
   maxIndex: number;

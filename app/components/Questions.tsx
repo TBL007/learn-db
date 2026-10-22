@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Question from "./Question";
+import "./component.css";
 interface QuestionsProps {
   questions: Array<LearnDB.Question>;
 }
