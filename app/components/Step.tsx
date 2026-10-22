@@ -14,7 +14,8 @@ function imageExists(src?: string) {
   return fs.existsSync(
     path.join(process.cwd(), "public", src.replace(/^\//, "")),
   );
-}function CheckIcon() {
+}
+function CheckIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -45,7 +46,7 @@ export default function Step({ categoryId, dbId }: StepProps) {
           </span>
 
           <div className="step-body">
-            <p className="step-eyebrow">step {index + 1}</p>
+            <p className="step-eyebrow">Step {index + 1}</p>
             <h3 id={step.id} className="step-title">
               {step.title}
             </h3>

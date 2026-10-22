@@ -1,7 +1,5 @@
 /*TEXT----------------------------------------------------------------------------------*/
-h1 {
-  color: black;
-}
+
 
 /*SIDEBAR-------------------------------------------------------------------------------*/
 .sidebar {
@@ -276,13 +274,14 @@ h1 {
 }
 
 .category-title {
-  margin: 0 0 clamp(1rem, 2.5vw, 1.75rem);
+
+  margin: 24px 0px 24px 70px;
   color: #141414;
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   font-weight: 500;
   letter-spacing: -0.3px;
   line-height: 1.2;
-  text-align: center;
+
 }
 
 .category-stage {
@@ -310,3 +309,23 @@ h1 {
 .category-content {
   padding: 132px 77px ;
 }
+
+
+/*STEPS-------------------------------------------------------------------------------------*/
+
+
+.step-text {
+  font-size: 20px;
+  color:#202020;
+}
+
+.step-eyebrow {
+  color:#c19169;
+  font-size: 30px;
+}
+
+.step-title {
+  font-size: xx-large;
+
+}
+
