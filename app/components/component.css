@@ -313,19 +313,108 @@
 
 /*STEPS-------------------------------------------------------------------------------------*/
 
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.step-body {
+  flex: 1 1 auto;
+}
 
 .step-text {
-  font-size: 20px;
-  color:#202020;
+  max-width: 72ch;
+  color: #34495e;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.step-important {
+  width: min(100%, 32rem);
+  margin: 0.75rem auto 0;
+  padding: 0.75rem 0.9rem;
+  background: #fffece;
+  color: #5b431d;
+}
+
+.step-important h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.25rem;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.step-important h4::before {
+  content: "!";
+  display: inline-grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #d7a56a;
+  color: #fff;
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.step-code {
+  margin-top: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  overflow-x: auto;
+  background: #f7f9fc;
+  border-left: 3px solid #6a97ba;
+}
+
+.step-code .code {
+  display: block;
+  color: #17354d;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.step-text a {
+  color: #1769aa;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+.step-text a:hover,
+.step-text a:focus-visible {
+  color: #0e4d80;
 }
 
 .step-eyebrow {
-  color:#c19169;
-  font-size: 30px;
+  margin-bottom: 0.35rem;
+  color: #9a6a43;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .step-title {
-  font-size: xx-large;
-
+  margin-bottom: 0.75rem;
+  color: #17354d;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
 }
-

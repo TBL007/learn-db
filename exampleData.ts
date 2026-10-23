@@ -41,7 +41,7 @@ const dataBases: Array<LearnDB.DataBase> = [
           {
             id: "db-1-cat-1-step-5",
             title: "Downloading MySQL",
-            text: "Head over to the <a href='https://dev.mysql.com/downloads/mysql/' target='_blank' rel='noreferrer'>MySQL Community Server downloads page</a> and pick the latest LTS (long-term support) release for your operating system. Optionally, also get <a href='https://dev.mysql.com/downloads/workbench/' target='_blank' rel='noreferrer'>MySQL Workbench</a>, a graphical client.",
+            text: "Head over to the <a href='https://dev.mysql.com/downloads/mysql/' target='_blank' rel='noreferrer'>MySQL Community Server downloads page</a> and pick the latest LTS (long-term support) release for your operating system, also get <a href='https://dev.mysql.com/downloads/workbench/' target='_blank' rel='noreferrer'>MySQL Workbench</a>, a graphical client.",
           },
           {
             id: "db-1-cat-1-step-6",

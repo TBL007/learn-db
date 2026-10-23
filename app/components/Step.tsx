@@ -41,10 +41,6 @@ export default function Step({ categoryId, dbId }: StepProps) {
     <div className="steps-container">
       {steps.map((step, index) => (
         <section key={step.id} className="step" aria-labelledby={step.id}>
-          <span className="step-check">
-            <CheckIcon />
-          </span>
-
           <div className="step-body">
             <p className="step-eyebrow">Step {index + 1}</p>
             <h3 id={step.id} className="step-title">
