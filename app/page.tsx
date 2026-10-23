@@ -1,7 +1,8 @@
-import dataBases from "@/exampleData";
+import { getDatabases } from "../lib/getDatabases";
 import DataBaseCard from "./components/DataBaseCard";
 
-export default function Home() {
+export default async function Home() {
+  const dataBases = await getDatabases();
   return (
     <div className="home">
       <h1 className="home-title">Get started with databases</h1>

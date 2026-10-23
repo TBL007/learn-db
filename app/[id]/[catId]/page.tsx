@@ -1,6 +1,6 @@
 import dataBases from "@/exampleData";
 import Category from "@/app/components/Category";
-import { notFound } from "next/navigation";
+import { getCategory } from "@/lib/getCategory";
 
 export function generateStaticParams() {
   return dataBases.flatMap((db) =>
@@ -14,10 +14,7 @@ export default async function Page({
   params: Promise<{ id: string; catId: string }>;
 }) {
   const { id, catId } = await params;
-  const category = dataBases
-    .find((db) => db.id === id)
-    ?.categories.find((cat) => cat.id === catId);
-  if (!category) notFound();
+  const category = await getCategory(catId);
 
   return <Category {...category} dbId={id} />;
 }
