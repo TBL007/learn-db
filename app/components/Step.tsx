@@ -42,7 +42,7 @@ export default function Step({ categoryId, dbId }: StepProps) {
       {steps.map((step, index) => (
         <section key={step.id} className="step" aria-labelledby={step.id}>
           <div className="step-body">
-            <p className="step-eyebrow">Step {index + 1}</p>
+            <p className="step-eyebrow">{index + 1}</p>
             <h3 id={step.id} className="step-title">
               {step.title}
             </h3>

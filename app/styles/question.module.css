@@ -1,36 +1,37 @@
 .main {
   width: min(100%, 900px);
   margin: clamp(2rem, 5vw, 3.5rem) auto 0;
-  padding: 0 18px 12px;
-  border-radius: 12px;
-  background: #d9d9d9;
+  padding: 18px 20px 14px;
+  border: 1px solid #dfeaf3;
+  border-radius: 14px;
+  background: #f6fbff;
 }
 
 .question {
-  padding: 16px 8px;
-  border-bottom: 1px solid #bcbcbc;
-  color: #1d1d1d;
+  padding: 0 0 12px;
+  border-bottom: 1px solid #dfeaf3;
+  color: #17354d;
   font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.4;
-  text-align: center;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding-top: 18px;
+  padding-top: 16px;
 }
 
 .textAnswer {
   width: 100%;
   min-height: 88px;
-  padding: 14px 16px;
-  border: 0;
+  padding: 12px 14px;
+  border: 1px solid #cfe0ee;
   border-radius: 10px;
-  background: #858585;
-  color: #ffffff;
+  background: #ffffff;
+  color: #243b53;
   font: inherit;
   font-size: 0.9rem;
   line-height: 1.5;
@@ -38,11 +39,11 @@
 }
 
 .textAnswer::placeholder {
-  color: #ededed;
+  color: #7d93a5;
 }
 
 .textAnswer:focus-visible {
-  outline: 2px solid #4f9bd8;
+  outline: 2px solid #7bb7e5;
   outline-offset: 2px;
 }
 
@@ -50,19 +51,32 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 16px;
-  border-radius: 10px;
-  background: #858585;
 }
 
 .option {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #ffffff;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #dfeaf3;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #34495e;
   font-size: 0.9rem;
   line-height: 1.4;
   cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+}
+
+.option:hover {
+  border-color: #a9c7dc;
+  background: #f9fcfe;
+}
+
+.option:has(.radio:checked) {
+  border-color: #7aaad0;
+  background: #edf7ff;
 }
 
 .radio {
@@ -71,11 +85,11 @@
   -webkit-appearance: none;
   display: inline-grid;
   place-content: center;
-  width: 14px;
-  height: 14px;
-  border: 1px solid #666666;
-  border-radius: 2px;
-  background: #ededed;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #8aa9c0;
+  border-radius: 50%;
+  background: #ffffff;
   cursor: pointer;
 }
 
@@ -84,16 +98,9 @@
   width: 8px;
   height: 8px;
   transform: scale(0);
-  transition: transform 0.1s ease-in-out;
-  background: #3d3d3d;
-  clip-path: polygon(
-    14% 44%,
-    0 65%,
-    50% 100%,
-    100% 16%,
-    80% 0%,
-    43% 62%
-  );
+  transition: transform 0.12s ease-in-out;
+  border-radius: 50%;
+  background: #2a6d98;
 }
 
 .radio:checked::before {
@@ -101,7 +108,7 @@
 }
 
 .radio:focus-visible {
-  outline: 2px solid #f1f1f1;
+  outline: 2px solid #7bb7e5;
   outline-offset: 2px;
 }
 
@@ -112,11 +119,11 @@
 }
 
 .correct {
-  color: #1d6b32;
+  color: #236f48;
 }
 
 .false {
-  color: #9d2727;
+  color: #9d3e35;
 }
 
 .footer {
@@ -124,7 +131,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 2px 2px 0;
+  padding-top: 2px;
 }
 
 .arrow {
@@ -134,8 +141,8 @@
   height: 30px;
   border: 0;
   border-radius: 50%;
-  background: transparent;
-  color: #4a4a4a;
+  background: #e6f1f8;
+  color: #2b5f83;
   font-size: 24px;
   line-height: 1;
   cursor: pointer;
@@ -143,17 +150,17 @@
 }
 
 .arrow:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.45);
-  color: #1d1d1d;
+  background: #d7eaf7;
+  color: #173f5c;
 }
 
 .arrow:focus-visible {
-  outline: 2px solid #4f9bd8;
+  outline: 2px solid #7bb7e5;
   outline-offset: 2px;
 }
 
 .arrow:disabled {
-  opacity: 0.3;
+  opacity: 0.4;
   cursor: default;
 }
 
@@ -165,32 +172,28 @@
 .dot {
   width: 7px;
   height: 7px;
-  border-radius: 1px;
-  background: #9a9a9a;
+  border-radius: 50%;
+  background: #c8d7e3;
 }
 
 .dotActive {
-  background: #3d3d3d;
+  background: #2b6d98;
 }
 
 @media (max-width: 680px) {
   .main {
-    padding: 0 12px 10px;
+    padding: 14px 12px 12px;
     border-radius: 10px;
   }
 
   .question {
-    padding: 12px 4px;
+    padding-bottom: 10px;
     font-size: 0.95rem;
   }
 
   .form {
     gap: 12px;
     padding-top: 14px;
-  }
-
-  .options {
-    padding: 12px;
   }
 
   .option {
