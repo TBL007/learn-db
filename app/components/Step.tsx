@@ -1,13 +1,7 @@
-import dataBases from "@/exampleData";
 import fs from "node:fs";
 import path from "node:path";
 import StepImage from "./StepImage";
 import "./component.css";
-
-interface StepProps {
-  dbId: string;
-  categoryId: string;
-}
 
 function imageExists(src?: string) {
   if (!src) return false;
@@ -16,12 +10,13 @@ function imageExists(src?: string) {
   );
 }
 
-export default function Step({ categoryId, dbId }: StepProps) {
-  const steps = dataBases
-    .find((db) => db.id === dbId)
-    ?.categories.find((category) => category.id === categoryId)?.steps;
-  if (!steps) return null;
+interface stepProps {
+  steps: Array<LearnDB.Step>;
+}
 
+export default function Step({ steps }: stepProps) {
+  if (!steps) return null;
+  console.log(steps);
   return (
     <div className="steps-container">
       {steps.map((step, index) => (

@@ -1,4 +1,3 @@
-import dataBases from "@/exampleData";
 import Step from "./Step";
 import Link from "next/link";
 import "./component.css";
@@ -15,12 +14,11 @@ export default async function Category({
   info,
   dbId,
   questions,
+  steps,
 }: CategoryProps) {
-  const db = dataBases.find((database) => database.id === dbId);
   const categories = await getCategories(dbId);
-  if (!db) return null;
 
-  const pageTitle = title.includes(db.title) ? title : `${db.title} - ${title}`;
+  const pageTitle = title.includes(dbId) ? title : `${dbId} - ${title}`;
 
   return (
     <div className="category">
@@ -42,7 +40,7 @@ export default async function Category({
       <div className="category-content">
         {info && <p className="category-info">{info}</p>}
 
-        <Step dbId={dbId} categoryId={id} />
+        <Step steps={steps} />
 
         <Questions questions={questions} />
       </div>

@@ -15,15 +15,15 @@ const db = mysql.createPool({
 export async function initDb(): Promise<void> {
   const statements = [
     `CREATE TABLE IF NOT EXISTS courses (
-      id VARCHAR(64) PRIMARY KEY,
+      id VARCHAR(255) PRIMARY KEY,
       title VARCHAR(255) NOT NULL,
       info JSON NOT NULL,
       logo VARCHAR(512) NOT NULL
     ) ENGINE=InnoDB`,
 
     `CREATE TABLE IF NOT EXISTS categories (
-      id VARCHAR(64) PRIMARY KEY,
-      course_id VARCHAR(64) NOT NULL,
+      id VARCHAR(255) PRIMARY KEY,
+      course_id VARCHAR(255) NOT NULL,
       title VARCHAR(255) NOT NULL,
       info TEXT NOT NULL,
       position INT NOT NULL DEFAULT 0,
@@ -32,8 +32,8 @@ export async function initDb(): Promise<void> {
     ) ENGINE=InnoDB`,
 
     `CREATE TABLE IF NOT EXISTS steps (
-      id VARCHAR(64) PRIMARY KEY,
-      category_id VARCHAR(64) NOT NULL,
+      id VARCHAR(255) PRIMARY KEY,
+      category_id VARCHAR(255) NOT NULL,
       title VARCHAR(255) NOT NULL,
       text TEXT NOT NULL,
       image VARCHAR(512) NULL,
@@ -45,8 +45,8 @@ export async function initDb(): Promise<void> {
     ) ENGINE=InnoDB`,
 
     `CREATE TABLE IF NOT EXISTS questions (
-      id VARCHAR(64) PRIMARY KEY,
-      category_id VARCHAR(64) NOT NULL,
+      id VARCHAR(255) PRIMARY KEY,
+      category_id VARCHAR(255) NOT NULL,
       question TEXT NOT NULL,
       answertype ENUM('multiple', 'text') NOT NULL,
       alternatives JSON NULL,

@@ -6,6 +6,6 @@ export async function getCategories(dbId: string): Promise<LearnDB.Category[]> {
     "select * from categories where course_id = ?",
     [dbId],
   );
-  console.log(rows);
+
   return rows as Array<LearnDB.Category>;
 }

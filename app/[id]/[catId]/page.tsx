@@ -1,12 +1,5 @@
-import dataBases from "@/exampleData";
 import Category from "@/app/components/Category";
 import { getCategory } from "@/lib/getCategory";
-
-export function generateStaticParams() {
-  return dataBases.flatMap((db) =>
-    db.categories.map((cat) => ({ id: db.id, catId: cat.id })),
-  );
-}
 
 export default async function Page({
   params,
