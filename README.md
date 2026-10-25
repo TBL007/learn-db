@@ -13,7 +13,6 @@ A simple webPage for learing how to install and setup MySql and MariaDB
 
 https://www.figma.com/design/Mj7tRXn8VSoasQSqgh4lti/Untitled?node-id=6-46&t=Q2GVYmIoJLmsT2W4-1
 
-## feedback
+LearnDBS
 
-noe som klart separerer step
-fixe category nav (for rotete)
+## feedback
