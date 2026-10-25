@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import dataBases from "@/exampleData";
+
 import "./component.css";
+import { useEffect, useState } from "react";
 
 function Squirrel() {
   return (
@@ -46,7 +47,16 @@ function DatabaseStack() {
 }
 
 export default function Sidebar() {
+  const [dataBases, setDataBases] = useState<Array<LearnDB.DataBase>>([]);
   const pathname = usePathname();
+  useEffect(() => {
+    const fetchDatabases = async () => {
+      const response = await fetch("/api/databases");
+      const data: Array<LearnDB.DataBase> = await response.json();
+      setDataBases(data);
+    };
+    fetchDatabases();
+  }, []);
 
   return (
     <aside className="sidebar">
@@ -58,7 +68,7 @@ export default function Sidebar() {
       <nav className="sidebar-nav" aria-label="Databases">
         <p className="sidebar-section-label">database</p>
         <ul className="sidebar-list">
-          {dataBases.map((db) => {
+          {dataBases?.map((db) => {
             const isActive =
               pathname === `/${db.id}` || pathname.startsWith(`/${db.id}/`);
 

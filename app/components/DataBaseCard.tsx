@@ -1,13 +1,14 @@
 import Link from "next/link";
 import "./component.css";
+import { getCategories } from "../../lib/getCategories";
 
-export default function DataBaseCard({
+export default async function DataBaseCard({
   id,
   info,
   title,
   logo,
-  categories,
 }: LearnDB.DataBase) {
+  const categories = await getCategories(id);
   const chapterCount = categories.length;
 
   return (

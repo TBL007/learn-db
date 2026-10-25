@@ -7,6 +7,7 @@ A simple webPage for learing how to install and setup MySql and MariaDB
 - custom paths are @/components/_ , @/styles/_ and @/\*
 - use camelCase
 - Types are PascalCase
+- eksempel data seed ligger i seed.sql
 
 ## Design Reference
 

@@ -1,31 +1,31 @@
-import dataBases from "@/exampleData";
 import Step from "./Step";
 import Link from "next/link";
 import "./component.css";
 import Questions from "./Questions";
+import { getCategories } from "../../lib/getCategories";
 
 interface CategoryProps extends LearnDB.Category {
   dbId: string;
 }
 
-export default function Category({
+export default async function Category({
   id,
   title,
   info,
   dbId,
   questions,
+  steps,
 }: CategoryProps) {
-  const db = dataBases.find((database) => database.id === dbId);
-  if (!db) return null;
+  const categories = await getCategories(dbId);
 
-  const pageTitle = title.includes(db.title) ? title : `${db.title} - ${title}`;
+  const pageTitle = title.includes(dbId) ? title : `${dbId} - ${title}`;
 
   return (
     <div className="category">
       <h1 className="category-title">{pageTitle}</h1>
 
       <nav className="category-stage" aria-label="Categories">
-        {db.categories.map((category) => (
+        {categories.map((category) => (
           <Link
             key={category.id}
             href={`/${dbId}/${category.id}`}
@@ -40,7 +40,7 @@ export default function Category({
       <div className="category-content">
         {info && <p className="category-info">{info}</p>}
 
-        <Step dbId={dbId} categoryId={id} />
+        <Step steps={steps} />
 
         <Questions questions={questions} />
       </div>

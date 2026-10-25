@@ -19,7 +19,7 @@ export default function StepImage({ src, alt }: StepImageProps) {
   }, []);
 
   if (!src || failed) {
-    return (
+    return true ? null : (
       <div className="step-image">
         <div
           className="step-image-placeholder"
