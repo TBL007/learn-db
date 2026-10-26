@@ -1,7 +1,16 @@
-export default function Home() {
+import { getDatabases } from "../lib/getDatabases";
+import DataBaseCard from "./components/DataBaseCard";
+
+export default async function Home() {
+  const dataBases = await getDatabases();
   return (
-    <div>
-      <h1></h1>
+    <div className="home">
+      <h1 className="home-title">Get started with databases</h1>
+      <div className="db-grid">
+        {dataBases.map((db) => (
+          <DataBaseCard {...db} key={db.id} />
+        ))}
+      </div>
     </div>
   );
 }
