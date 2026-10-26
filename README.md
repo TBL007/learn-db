@@ -34,3 +34,7 @@ LearnDBS
 - gjorde api's/datafetching, database, typing, page, databasecard, questions
 - ble litt messy her og der men fikk fram noe som funker
 - skal se på å få det publisert men gadd ikke plage gudjon i helga
+
+### refleksjon
+
+gikk ganske bra var noen utfordringer med publisering pga av at portalen ikke er laget for next.js. er fornøyd med produktet i sin helhet men kan lage et ui for å redigere / legge coursesene. designet funka bra har hardkodet noen ting men ikke så mye, brukte litt ki her og der men har sett over og korigert der det trengs
